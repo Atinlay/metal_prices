@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     connection = get_database_engine()
 
-    metal_and_prices_df.to_sql(name="metal_prices",
+    metal_and_prices_df.to_sql(name=config.sql_table,
                                con=connection,
                                schema="projects",
                                if_exists="append",
