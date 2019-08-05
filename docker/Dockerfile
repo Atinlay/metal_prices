@@ -1,6 +1,6 @@
 FROM balenalib/amd64-alpine-python:latest
 
-RUN apt-get update -y
+#RUN apt-get update -y
 RUN apt-get install -y cron
 
 RUN pip install --upgrade pip
