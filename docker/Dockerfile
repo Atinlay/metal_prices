@@ -1,8 +1,13 @@
-FROM python:3.6.9-buster
+FROM continuumio/miniconda3
 
 RUN apt-get update && apt-get -y install cron
 
-RUN pip install pandas numpy requests sqlalchemy bs4 mysqlclient
+# switch the complete conda to python 3.6.5 so we don't need an env
+RUN conda install python=3.6.5
+
+RUN pip install --upgrade pip
+
+RUN pip install pandas=0.24.2 requests sqlalchemy bs4 mysqlclient
 
 # ADD *.py /host/codebase/
 
