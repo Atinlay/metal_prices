@@ -5,7 +5,7 @@ RUN apt-get install -y cron
 
 RUN pip install --upgrade pip
 
-RUN pip install pandas==0.24.2 requests sqlalchemy bs4 mysqlclient
+RUN pip install pandas requests sqlalchemy bs4 mysqlclient
 
 # ADD *.py /host/codebase/
 
