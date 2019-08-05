@@ -1,4 +1,4 @@
-FROM balenalib/amd64-alpine-python:latest
+FROM arm32v7/python
 
 #RUN apt-get update -y
 RUN apt-get install -y cron
