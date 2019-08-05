@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
-RUN apt-get -y update
-RUN apt-get -y install cron
+RUN apt-get update; \
+apt-get install -y cron
 
 # switch the complete conda to python 3.6.5 so we don't need an env
 RUN conda install python=3.6.5
