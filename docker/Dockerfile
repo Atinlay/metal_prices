@@ -1,6 +1,6 @@
 FROM arm32v7/python
 
-#RUN apt-get update -y
+RUN apt-get update
 RUN apt-get install -y cron
 
 RUN pip install --upgrade pip
