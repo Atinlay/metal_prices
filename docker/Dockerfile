@@ -1,6 +1,7 @@
 FROM python:3.7-alpine
 
-RUN apt-get update && apt-get -y install cron
+RUN apk update
+#RUN apk add --update --no-cache cron
 
 # switch the complete conda to python 3.6.5 so we don't need an env
 RUN conda install python=3.6.5
