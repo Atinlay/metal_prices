@@ -1,5 +1,4 @@
-pandas==0.24.2
-datetime
+pandas
 requests
 sqlalchemy
 bs4
