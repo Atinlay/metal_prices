@@ -3,16 +3,12 @@ FROM python:3.7-alpine
 RUN apk update
 #RUN apk add --update --no-cache cron
 
-# switch the complete conda to python 3.6.5 so we don't need an env
-#RUN conda install python=3.6.5
-
 RUN pip install --upgrade pip
 
-RUN pip3 install -r requirements.txt
-
-ADD ../*.py /host/codebase/
-
-COPY ../cronjob /etc/cron.d/cronjob
+COPY requirements.txt /opt/app/requirements.txt
+WORKDIR /opt/app
+RUN pip install -r requirements.txt
+COPY . /opt/app
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/cronjob
