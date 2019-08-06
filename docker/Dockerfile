@@ -1,13 +1,13 @@
-FROM debian:stretch-slim
+FROM python:3.7-alpine
 
-RUN apt-get update && apt-get -y dist-upgrade
-RUN apt-get -y install python3.5 python3-dev python3-pip cython3
-RUN apt-get -y install python3-numpy
-RUN apt-get -y install python3-pandas cron
+RUN apt-get update && apt-get -y install cron
+
+# switch the complete conda to python 3.6.5 so we don't need an env
+RUN conda install python=3.6.5
 
 RUN pip install --upgrade pip
 
-RUN pip install requests sqlalchemy bs4 mysqlclient
+RUN pip3 install -r requirements.txt
 
 ADD ../*.py /host/codebase/
 

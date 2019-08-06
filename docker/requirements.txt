@@ -1,0 +1,6 @@
+pandas==0.24.2
+datetime
+requests
+sqlalchemy
+bs4
+mysqlclient
