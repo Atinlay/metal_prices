@@ -1,17 +1,9 @@
-FROM python:3.6.4-alpine3.7
+FROM debian:stretch-slim
 
-RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-
-RUN apk update
-
-RUN apk add --update --no-cache \
-    libgfortran
-
-RUN apk add --update --no-cache \
-    linux-headers \
-    python \
-    py2-numpy@community py2-scipy@community \
-    cron
+RUN apt-get update && apt-get -y dist-upgrade
+RUN apt-get -y install python3.5 python3-dev python3-pip cython3
+RUN apt-get -y install python3-numpy
+RUN apt-get -y install python3-pandas cron
 
 RUN pip install --upgrade pip
 
