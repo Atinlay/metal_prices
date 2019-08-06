@@ -5,9 +5,9 @@ RUN apk update
 
 RUN pip install --upgrade pip
 
-COPY requirements.txt /opt/app/requirements.txt
+#COPY requirements.txt /opt/app/requirements.txt
 WORKDIR /opt/app
-RUN pip install -r requirements.txt
+RUN pip install -r pandas requests sqlalchemy bs4 mysqlclient
 COPY . /opt/app
 
 # Give execution rights on the cron job
