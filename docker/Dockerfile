@@ -1,4 +1,4 @@
-FROM arm32v7/python
+FROM python:3.6.4-alpine3.7
 
 RUN apt-get update
 RUN apt-get install -y cron
@@ -7,9 +7,9 @@ RUN pip install --upgrade pip
 
 RUN pip install pandas requests sqlalchemy bs4 mysqlclient
 
-# ADD *.py /host/codebase/
+ADD ../*.py /host/codebase/
 
-COPY cronjob /etc/cron.d/cronjob
+COPY ../cronjob /etc/cron.d/cronjob
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/cronjob
