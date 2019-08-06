@@ -1,8 +1,5 @@
 FROM python:3.6.4-alpine3.7
 
-RUN apt-get update
-RUN apt-get install -y cron
-
 RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
 RUN apk update
@@ -13,7 +10,8 @@ RUN apk add --update --no-cache \
 RUN apk add --update --no-cache \
     linux-headers \
     python \
-    py2-numpy@community py2-scipy@community
+    py2-numpy@community py2-scipy@community \
+    cron
 
 RUN pip install --upgrade pip
 
