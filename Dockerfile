@@ -1,14 +1,19 @@
-FROM python:3.7-alpine
+FROM ubuntu:14.04
 
-RUN apk update
-RUN apk add make automake gcc g++ subversion python3-dev
-RUN apk add --update --no-cache py-mysqldb
+RUN add-apt-repository ppa:jonathonf/python-3.6
+
+RUN apt-get update
+RUN apt-get upgrade -y
+
+RUN apt-get install python3.6 -y
 
 RUN pip install --upgrade pip
 
+# RUN sudo apt install default-libmysqlclient-dev
+
 #COPY requirements.txt /opt/app/requirements.txt
 WORKDIR /opt/app
-RUN pip install pandas requests sqlalchemy bs4 mysqlclient
+RUN pip install --upgrade cython pandas requests sqlalchemy bs4 mysqlclient
 COPY . /opt/app
 
 # Give execution rights on the cron job
