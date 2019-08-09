@@ -1,1 +1,1 @@
-0 1 * * * /usr/local/bin/python3 /host/projects/metal_prices/main.py
+0 1 * * * /python3 /host/projects/metal_prices/main.py
